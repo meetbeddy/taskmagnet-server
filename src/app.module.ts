@@ -1,5 +1,8 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { TasksModule } from './tasks/tasks.module';
+import { BoardsModule } from './boards/boards.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -7,6 +10,9 @@ import { MongooseModule } from '@nestjs/mongoose';
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }),
+    TasksModule,
+    BoardsModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
