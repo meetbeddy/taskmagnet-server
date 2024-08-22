@@ -2,12 +2,10 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BoardsService } from './boards.service';
 import { BoardsController } from './boards.controller';
-import { BoardSchema } from '../../common/database/collections/board.schema';
+import { CollectionRegistry } from '../../common/database/collection.registry';
 
 @Module({
-  imports: [
-    MongooseModule.forFeature([{ name: 'Board', schema: BoardSchema }]),
-  ],
+  imports: [MongooseModule.forFeature(CollectionRegistry)],
   controllers: [BoardsController],
   providers: [BoardsService],
 })

@@ -7,12 +7,20 @@ export class CustomLogger implements LoggerService {
     level: 'info',
     format: format.combine(
       format.timestamp(),
+      format.colorize(),
       format.printf(({ timestamp, level, message }) => {
         return `${timestamp} [${level}]: ${message}`;
       }),
     ),
     transports: [
-      new transports.Console(),
+      new transports.Console({
+        format: format.combine(
+          format.colorize(),
+          format.printf(({ timestamp, level, message }) => {
+            return `${timestamp} [${level}]: ${message}`;
+          }),
+        ),
+      }),
       new transports.File({ filename: 'combined.log' }),
     ],
   });
