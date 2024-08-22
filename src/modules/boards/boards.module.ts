@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BoardsService } from './boards.service';
 import { BoardsController } from './boards.controller';
-import { BoardSchema } from './schemas/board.schema';
+import { BoardSchema } from '../../common/database/collections/board.schema';
 
 @Module({
   imports: [

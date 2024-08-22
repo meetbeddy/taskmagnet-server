@@ -1,8 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { Types } from 'mongoose';
-// import { Board } from '../../boards/schemas/board.schema';
-import { BoardSchema } from '../../boards/schemas/board.schema';
+import { BoardSchema } from './board.schema';
+import { SchemaJsonInterceptor } from '../collection.interceptor';
 
 @Schema()
 export class List extends Document {
@@ -16,4 +16,7 @@ export class List extends Document {
   createdAt: Date;
 }
 
-export const ListSchema = SchemaFactory.createForClass(List);
+export const ListSchema = SchemaFactory.createForClass(List).set(
+  'toJSON',
+  SchemaJsonInterceptor,
+);
