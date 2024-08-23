@@ -7,7 +7,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { ListsModule } from './modules/lists/lists.module';
 import { CardsModule } from './modules/cards/cards.module';
 import { CollectionRegistry } from './common/database/collection.registry';
-import { LoggerModule } from './logger/logger.module';
+import { LoggerModule } from './common/logger/logger.module';
 
 @Module({
   imports: [
